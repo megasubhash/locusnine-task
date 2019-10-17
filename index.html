@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>   
+<script src="js/app.js"></script> 
+</head>
+   
+    <body class="body" ng-app="myApp" ng-controller="myCtrl">
+        
+            <div class="fluid-container">
+                    <div class="logo">
+                        <img src="src/logo.png"/>
+                
+                    </div>
+                    <div class="header">
+                            <p>SALES DASHBOARD</p>
+                    </div>
+                        
+            
+        </br></br></br></br></br>
+        <div id="container" class="fluid-container">
+                <ul class="nav nav-tabs" id="weektabs">
+                        <li class="active"><a data-toggle="tab" href="#home"><span class="activeweek">Today</span></a></li>
+                        <li><a data-toggle="tab" href="#menu1"><span class="pweek">Last Week</span></a></li>
+                        <li><a data-toggle="tab" href="#menu2"><span class="pweek">Last Month</span></a></li>
+                        <li><a data-toggle="tab" href="#menu3"><span class="pweek">This Quarter</span></a></li>
+                        <li><a data-toggle="tab" href="#menu3"><span class="pweek">This Year</span></a></li>
+                      </ul>
+
+                     
+                      
+                      <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">  
+                                 
+                            <div class="container" id="mainbody">
+                                
+                                <div class="col-sm-3 col-md-6 col-lg-9" id="sales">
+                                        <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="salesbutton" data-toggle="dropdown">All Sales Reps
+                                                <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                  <li selected="selected"><a href="#">HTML</a></li>
+                                                  <li><a href="#">CSS</a></li>
+                                                  <li><a href="#">JavaScript</a></li>
+                                                </ul>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-sm-3 col-md-6 col-lg-7">
+                                              <img id="imagefunnel" src="src/funnel.png"/>
+                                              <p id="">
+                                                  <span class="leadtext">Lead in</span> </br><span class="leadcount">{{salesdata.length}}</span>
+                                              </p>
+                                              <p id="">
+                                                  <span class="contacttext">Contact Made</span> </br><span class="leadcount1">{{contact}}</span>
+                                              </p>
+                                              <p id="">
+                                                  <span class="needtext">Needs Defined</span> </br><span class="leadcount2">{{needs}}</span>
+                                              </p>
+                                              <p id="">
+                                                  <span class="proptext">Proposal Made</span> </br><span class="leadcount3">25</span>
+                                              </p>
+                                              <p id="">
+                                                  <span class="negtext">Negotiation </br>Started</span> </br><span class="leadcount4">{{negotiation}}</span>
+                                              </p>
+                                              <p id="">
+                                                  <span class="wontext">Won</span> </br><span class="leadcount5">{{totalwin}}</span>
+                                              </p>
+                                          </div>
+                                          <div class="col-sm-3 col-md-3 col-lg-3">
+                                              <div class="container top" id="stats1">
+                                                  <div class="card">
+                                                      <img id="statsimage" src="src/ico-calls.png"/>
+                                                    <div class="card-body">
+                                                        
+                                                        <span class="statstext">
+                                                            CALLS   
+                                                           
+                                                        </span>
+                                                        <span class="winstats">
+                                                          {{contact}}/{{salesdata.length}}
+                                                        </span>
+                                                        
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                              <div class="container top" id="stats2">
+                                                  <div class="card">
+                                                      <img id="statsimage" src="src/ico-wins.png"/>
+                                                    <div class="card-body">
+                                                        
+                                                        <span class="statstext">
+                                                            WINS   
+                                                           
+                                                        </span>
+                                                        <span class="winstats1">
+                                                            {{totalwin}}/{{salesdata.length}}
+                                                          </span>
+                                                        
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                              <div class="container top" id="stats2">
+                                                  <div class="card">
+                                                      <img id="statsimage" src="src/ico-revenue.png"/>
+                                                    <div class="card-body">
+                                                        
+                                                        <span class="statstext">
+                                                            INCREMENTED</br>
+                                                            REVENUE   
+                                                           
+                                                        </span>
+                                                        <span class="winstats">
+                                                            10/15
+                                                          </span>
+                                                        
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                        </div>
+                                        
+                                </div>
+                                <!--
+
+                                    
+                                    -->
+                                
+                                
+                                <div class="col-sm-3 col-md-6 col-lg-3" id="topbottom">
+                                        <ul class="nav nav-tabs" id="topbottomtabs">
+                                                <li class="active"><a data-toggle="tab" href="#topwinner"><span class="activeweek">Top</span></a></li>
+                                                <li><a data-toggle="tab" href=""><span class="pweek">Bottom</span></a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div id="topwinner" class="tab-pane fade in active">  
+                                        <div class="container top" id="top1">
+                                                <div class="card">
+                                                        <span class="winnername">John Doe</span>
+                                                  <div class="card-body">
+                                                      <span class="winnerstats">
+                                                          New MRR   <span class="winnercount">230</span></br>
+                                                          New Logos<span class="winnercount">230</span></br>
+                                                          Demo Calls<span class="winnercount">30</span></br>
+                                                      </span>
+                                                      
+                                                      <img id="winnerimage" src="src/winner.png"/>
+                                                  </div>
+                                                </div>
+                                        </div>
+                                        <div class="container top" id="top2">
+                                            <div class="card">
+                                                <span class="winnername">John Doe</span>
+                                          <div class="card-body">
+                                              <span class="winnerstats1">
+                                                  New MRR   <span class="winnercount">5230</span></br>
+                                                  New Logos<span class="winnercount">230</span></br>
+                                                  Demo Calls<span class="winnercount">30</span></br>
+                                              </span>
+                                              
+                                              <img id="winnerimage" src="src/winner.png"/>
+                                          </div>
+                                        </div>
+                                              
+                                        </div>
+                                        <div class="container top" id="top3">
+                                            <div class="card">
+                                                <span class="winnername">John Doe</span>
+                                          <div class="card-body">
+                                              <span class="winnerstats2">
+                                                  New MRR   <span class="winnercount">5230</span></br>
+                                                  New Logos<span class="winnercount">230</span></br>
+                                                  Demo Calls<span class="winnercount">30</span></br>
+                                              </span>
+                                              
+                                              <img id="winnerimage" src="src/winner.png"/>
+                                          </div>
+                                        </div>
+                                              
+                                        </div>
+                                               
+                                        </div>
+                                        </div>
+                                        <div id="bottomwinner" class="tab-pane fade">  
+                                            <div class="container top" id="top1">
+                                                    <div class="card">
+                                                            <span class="winnername">John Doe</span>
+                                                      <div class="card-body">
+                                                          <span class="winnerstats">
+                                                              New MRR   <span class="winnercount">30</span></br>
+                                                              New Logos<span class="winnercount">30</span></br>
+                                                              Demo Calls<span class="winnercount">30</span></br>
+                                                          </span>
+                                                          <img id="winnerimage" src="src/winner.png"/>
+                                                      </div>
+                                                    </div>
+                                            </div>
+                                            <div class="container top" id="top2">
+                                                    
+                                                    <div class="card">
+                                                        <span class="winnername">John Doe</span>
+                                                      <div class="card-body">
+                                                          <span class="winnerstats">
+                                                              New MRR   <span class="winnercount">30</span></br>
+                                                              New Logos<span class="winnercount">30</span></br>
+                                                              Demo Calls<span class="winnercount">30</span></br>
+                                                          </span>
+                                                            <img id="winnerimage" src="src/winner.png"/>
+                                                      </div>
+                                                     
+                                                    </div>
+                                            </div>
+                                            <div class="container top" id="top3">
+                                                    
+                                                    <div class="card">
+                                                            <span class="winnername">John Doe</span>
+                                                      <div class="card-body">
+                                                        <span class="winnerstats">
+                                                            New MRR   <span class="winnercount">5230</span></br>
+                                                            New Logos<span class="winnercount">230</span></br>
+                                                            Demo Calls<span class="winnercount">30</span></br>
+                                                        </span>
+                                                            <img id="winnerimage" src="src/winner.png"/>
+                                                      </div>
+                                                      
+                                                    </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!--
+                            <div id="menu1" class="tab-pane fade">
+                              <h3>Menu 1</h3>
+                              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                            <div id="menu2" class="tab-pane fade">
+                              <h3>Menu 2</h3>
+                              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                            </div>
+                            <div id="menu3" class="tab-pane fade">
+                              <h3>Menu 3</h3>
+                              <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                            </div>
+                            -->
+                            
+                    </div>
+                   
+        </div>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Sales Rep</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Client</th>
+                    <th scope="col">Primary Contact Person</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Verticle</th>
+                    <th scope="col">Meeting Location</th>
+                    <th scope="col">Purpose of interaction</th>
+                    <th scope="col">Outcome and Remarks</th>
+                    <th scope="col">Enmgagement Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in salesdata">
+                        <td>
+                          {{row.sales_reps}}
+                        </td>
+                        <td>
+                            {{row.date}}
+                        </td>
+                        <td>
+                            {{row.client}}
+                        </td>
+                        <td>
+                            {{row.pcp}}
+                        </td>
+                        <td>
+                            {{row.title}}
+                        </td>
+                        <td>
+                            {{row.verticle}}
+                        </td>
+                        <td>
+                            {{row.m_location}}
+                        </td>
+                        <td>
+                            {{row.purpose}}
+                        </td>
+                        <td>
+                            {{row.outcome}}
+                        </td>
+                        <td>
+                            {{row.status}}
+                        </td>
+                      </tr>
+                </tbody>
+              </table>
+
+
+        </div>
+        
+    </div>
+   
+        <script src="" async defer></script>
+    </body>
+</html>
